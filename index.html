@@ -1,331 +1,115 @@
-<html>
+<!DOCTYPE html>
 <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
-  <style>.rdp {
-  --rdp-cell-size: 40px;
-  --rdp-accent-color: #0000ff;
-  --rdp-background-color: #e7edff;
-  --rdp-accent-color-dark: #3003e1;
-  --rdp-background-color-dark: #180270;
-  --rdp-outline: 2px solid var(--rdp-accent-color); /* Outline border for focused elements */
-  --rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75); /* Outline border for focused _and_ selected elements */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Cards are Cool ✨</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to override Tailwind for the retro title effect and list icons */
+        .retro-title {
+            text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.15em;
+        }
+        .content-list {
+            list-style: none; /* Remove default bullet */
+            padding-left: 0;
+        }
+        .content-list li::before {
+            content: "🌸"; /* Use a cute emoji as the bullet */
+            margin-right: 0.5rem;
+            font-size: 0.9em;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pastel-pink': '#FFADAD',
+                        'pastel-blue': '#A3D9FF',
+                        'pastel-cream': '#F8F4E3',
+                        'pastel-lavender': '#EAEFF7',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<!-- 
+    The body uses a light cream background color (pastel-cream) 
+    and centers the main content container.
+-->
+<body class="bg-pastel-cream min-h-screen p-4 sm:p-8 flex justify-center">
 
-  margin: 1em;
-}
+    <!-- 
+        Main Container: Mimics the outer border frame from the original image.
+        It uses a soft blue border (pastel-blue) and a pale lavender background.
+    -->
+    <div class="w-full max-w-4xl border-[16px] border-pastel-blue shadow-xl rounded-lg overflow-hidden bg-pastel-lavender">
+        
+        <!-- Header Section: Mimics the stylized 'Mozilla is cool' title. -->
+        <header class="bg-pastel-pink text-gray-800 text-center py-6 sm:py-8">
+            <h1 class="retro-title text-4xl sm:text-5xl font-extrabold uppercase p-2">
+                Credit Cards are Cool ✨
+            </h1>
+        </header>
 
-/* Hide elements for devices that are not screen readers */
-.rdp-vhidden {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  border: 0;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute !important;
-  top: 0;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  border: 0 !important;
-}
+        <!-- Image Placeholder Section -->
+        <div class="text-center py-8 bg-pastel-lavender">
+            <!-- 
+                Using a placeholder image that matches the pastel aesthetic.
+                The image is round with a pink border to enhance the 'cute' factor.
+            -->
+            <img 
+                src="https://placehold.co/250x250/A3D9FF/FFFFFF?text=Cute+Card+Icon" 
+                alt="Stylized Credit Card Icon" 
+                class="w-48 h-48 sm:w-60 sm:h-60 mx-auto rounded-full border-4 border-pastel-pink shadow-lg object-cover"
+            >
+        </div>
 
-/* Buttons */
-.rdp-button_reset {
-  appearance: none;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  cursor: default;
-  color: inherit;
-  outline: none;
-  background: none;
-  font: inherit;
+        <!-- 
+            Content Box: Mimics the large orange content area. 
+            Using a very pale yellow background for a soft look.
+        -->
+        <div class="bg-yellow-50 text-gray-800 p-6 sm:p-10 text-lg leading-relaxed">
+            <p class="mb-6 font-medium">
+                At <strong class="text-pastel-pink">FinLit</strong>, we believe **financial literacy** should be simple and fun! A credit card is a powerful tool when used responsibly, helping you unlock long-term financial stability.
+            </p>
+            
+            <p class="mb-4 text-xl font-semibold text-gray-700">
+                Key Benefits of Responsible Credit Use:
+            </p>
 
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
+            <!-- List Section: Styled with custom emoji bullets -->
+            <ul class="content-list space-y-3 mb-8 pl-0">
+                <li class="pl-2">
+                    <strong class="text-indigo-600">Building Credit History:</strong> Establishing a strong credit profile is crucial for future loans (car, house) and better interest rates.
+                </li>
+                <li class="pl-2">
+                    <strong class="text-indigo-600">Earning Rewards & Perks:</strong> Many cards offer cash back, travel miles, or points on everyday purchases—a little bonus for being smart!
+                </li>
+                <li class="pl-2">
+                    <strong class="text-indigo-600">Handling Emergencies:</strong> Provides a safety net for unexpected expenses without dipping into your savings.
+                </li>
+            </ul>
 
-.rdp-button {
-  border: 2px solid transparent;
-}
+            <p class="mb-6">
+                We believe that understanding how credit works is **essential to financial freedom** and securing your future. Consistency and timely payments are the foundation of good credit health.
+            </p>
 
-.rdp-button[disabled] {
-  opacity: 0.25;
-}
-
-.rdp-button:not([disabled]) {
-  cursor: pointer;
-}
-
-.rdp-button:focus:not([disabled]),
-.rdp-button:active:not([disabled]) {
-  color: inherit;
-  border: var(--rdp-outline);
-  background-color: var(--rdp-background-color);
-}
-
-.rdp-button:hover:not([disabled]) {
-  background-color: var(--rdp-background-color);
-}
-
-.rdp-months {
-  display: flex;
-}
-
-.rdp-month {
-  margin: 0 1em;
-}
-
-.rdp-month:first-child {
-  margin-left: 0;
-}
-
-.rdp-month:last-child {
-  margin-right: 0;
-}
-
-.rdp-table {
-  margin: 0;
-  max-width: calc(var(--rdp-cell-size) * 7);
-  border-collapse: collapse;
-}
-
-.rdp-with_weeknumber .rdp-table {
-  max-width: calc(var(--rdp-cell-size) * 8);
-  border-collapse: collapse;
-}
-
-.rdp-caption {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0;
-  text-align: left;
-}
-
-.rdp-multiple_months .rdp-caption {
-  position: relative;
-  display: block;
-  text-align: center;
-}
-
-.rdp-caption_dropdowns {
-  position: relative;
-  display: inline-flex;
-}
-
-.rdp-caption_label {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  margin: 0;
-  padding: 0 0.25em;
-  white-space: nowrap;
-  color: currentColor;
-  border: 0;
-  border: 2px solid transparent;
-  font-family: inherit;
-  font-size: 140%;
-  font-weight: bold;
-}
-
-.rdp-nav {
-  white-space: nowrap;
-}
-
-.rdp-multiple_months .rdp-caption_start .rdp-nav {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
-
-.rdp-multiple_months .rdp-caption_end .rdp-nav {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-}
-
-.rdp-nav_button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--rdp-cell-size);
-  height: var(--rdp-cell-size);
-  padding: 0.25em;
-  border-radius: 100%;
-}
-
-/* ---------- */
-/* Dropdowns  */
-/* ---------- */
-
-.rdp-dropdown_year,
-.rdp-dropdown_month {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-.rdp-dropdown {
-  appearance: none;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  cursor: inherit;
-  opacity: 0;
-  border: none;
-  background-color: transparent;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-.rdp-dropdown[disabled] {
-  opacity: unset;
-  color: unset;
-}
-
-.rdp-dropdown:focus:not([disabled]) + .rdp-caption_label,
-.rdp-dropdown:active:not([disabled]) + .rdp-caption_label {
-  border: var(--rdp-outline);
-  border-radius: 6px;
-  background-color: var(--rdp-background-color);
-}
-
-.rdp-dropdown_icon {
-  margin: 0 0 0 5px;
-}
-
-.rdp-head {
-  border: 0;
-}
-
-.rdp-head_row,
-.rdp-row {
-  height: 100%;
-}
-
-.rdp-head_cell {
-  vertical-align: middle;
-  text-transform: uppercase;
-  font-size: 0.75em;
-  font-weight: 700;
-  text-align: center;
-  height: 100%;
-  height: var(--rdp-cell-size);
-  padding: 0;
-}
-
-.rdp-tbody {
-  border: 0;
-}
-
-.rdp-tfoot {
-  margin: 0.5em;
-}
-
-.rdp-cell {
-  width: var(--rdp-cell-size);
-  height: 100%;
-  height: var(--rdp-cell-size);
-  padding: 0;
-  text-align: center;
-}
-
-.rdp-weeknumber {
-  font-size: 0.75em;
-}
-
-.rdp-weeknumber,
-.rdp-day {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  width: var(--rdp-cell-size);
-  max-width: var(--rdp-cell-size);
-  height: var(--rdp-cell-size);
-  margin: 0;
-  border: 2px solid transparent;
-  border-radius: 100%;
-}
-
-.rdp-day_today:not(.rdp-day_outside) {
-  font-weight: bold;
-}
-
-.rdp-day_selected:not([disabled]),
-.rdp-day_selected:focus:not([disabled]),
-.rdp-day_selected:active:not([disabled]),
-.rdp-day_selected:hover:not([disabled]) {
-  color: white;
-  background-color: var(--rdp-accent-color);
-}
-
-.rdp-day_selected:focus:not([disabled]) {
-  border: var(--rdp-outline-selected);
-}
-
-.rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.rdp:not([dir='rtl']) .rdp-day_range_end:not(.rdp-day_range_start) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.rdp[dir='rtl'] .rdp-day_range_start:not(.rdp-day_range_end) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.rdp[dir='rtl'] .rdp-day_range_end:not(.rdp-day_range_start) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.rdp-day_range_end.rdp-day_range_start {
-  border-radius: 100%;
-}
-
-.rdp-day_range_middle {
-  border-radius: 0;
-}
-</style></head>
-<body>
-    <h1>Mozilla is cool</h1>
-    <img src="images/firefox-icon.png" alt="The Firefox logo: a flaming fox surrounding the Earth.">
-
-    <p>At Mozilla, we’re a global community of</p>
-    
-    <ul> <!-- changed to list in the tutorial -->
-      <li>technologists</li>
-      <li>thinkers</li>
-      <li>builders</li>
-    </ul>
-
-    <p>working together to keep the Internet alive and accessible, so people worldwide can be informed contributors and creators of the Web. We believe this act of human collaboration across an open platform is essential to individual growth and our collective future.</p>
-
-    <p>Read the <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a> to learn even more about the values and principles that guide the pursuit of our mission.</p>
-  
+            <p class="border-t border-gray-300 pt-4">
+                Learn more about **responsible credit use** and the **best practices** for managing your card by reading our 
+                <a href="#" class="text-pastel-pink hover:text-pink-600 underline font-bold transition duration-150 ease-in-out rounded-sm p-1">
+                    Financial Wellness Guide
+                </a> to pursue smart, financially confident decisions.
+            </p>
+        </div>
+    </div>
 </body>
 </html>
    
